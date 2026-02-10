@@ -31,9 +31,21 @@ export default function Home() {
           Dominate AI search results, automate infinite content loops, and convert traffic with psychological precision.
         </p>
 
-        <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1">
-          Deploy Your Team &rarr;
-        </button>
+        <div className="flex flex-col gap-4">
+          <a
+            href="/campaigns/moodpop/desk-sanctuary"
+            className="px-8 py-4 bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(244,63,94,0.5)]"
+          >
+            Go to MoodPop Campaign &rarr;
+          </a>
+          <p className="text-sm text-gray-400">or deploy your own team below</p>
+          <a
+            href="/deploy"
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all"
+          >
+            Deploy Your Team &rarr;
+          </a>
+        </div>
       </section>
 
       {/* Statistics Section (GEO Architect) */}
