@@ -1,0 +1,136 @@
+{
+    "name": "MoodPop - StudyTok Trend Response",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "minutes",
+                            "minutes": 60
+                        }
+                    ]
+                }
+            },
+            "name": "Hourly Trend Check",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://api.apify.com/v2/acts/clockworks~instagram-hashtag-scraper/run-sync-get-dataset-items",
+                "method": "POST",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpHeader",
+                "headerParameters": {
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "value": "Bearer YOUR_APIFY_TOKEN"
+                        }
+                    ]
+                },
+                "body": {
+                    "hashtags": [
+                        "#StudyTok",
+                        "#DeskSetup",
+                        "#CozyGamer"
+                    ],
+                    "resultsLimit": 20
+                }
+            },
+            "name": "Fetch Trends",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 1,
+            "position": [
+                450,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "model": "gpt-4",
+                "prompt": "Analyze the top trending colors and themes from these Instagram posts: {{$json[\"body\"]}}. \n\nThen, select the best matching MoodPop Book Nook (e.g., 'Magical Pharmacy', 'Sunshine Town', 'Sakura Tram').\n\nReturn JSON: { \"theme\": string, \"recommendedKit\": string, \"copyAngle\": string }"
+            },
+            "name": "AI Trend Analyzer",
+            "type": "n8n-nodes-base.openAi",
+            "typeVersion": 1,
+            "position": [
+                650,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "https://api.github.com/repos/YOUR_REPO/dispatches",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpHeader",
+                "headerParameters": {
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "value": "Bearer YOUR_GITHUB_TOKEN"
+                        },
+                        {
+                            "name": "Accept",
+                            "value": "application/vnd.github.v3+json"
+                        }
+                    ]
+                },
+                "body": {
+                    "event_type": "deploy_moodpop_campaign",
+                    "client_payload": {
+                        "theme": "{{$json[\"choices\"][0][\"message\"][\"content\"]}}"
+                    }
+                }
+            },
+            "name": "Trigger Campaign Build",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 1,
+            "position": [
+                850,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Hourly Trend Check": {
+            "main": [
+                [
+                    {
+                        "node": "Fetch Trends",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Fetch Trends": {
+            "main": [
+                [
+                    {
+                        "node": "AI Trend Analyzer",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Trend Analyzer": {
+            "main": [
+                [
+                    {
+                        "node": "Trigger Campaign Build",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

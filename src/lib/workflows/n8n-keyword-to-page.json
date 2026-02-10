@@ -1,0 +1,89 @@
+{
+  "name": "Unstoppable 5 - Keyword to Landing Page",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-landing-page",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "prompt": "Generate a high-converting landing page adhering to the 'Unstoppable 5' principles for the keyword: {{$json[\"body\"][\"keyword\"]}}. \n\nInclude:\n1. A headline using the 'Juha Effect'.\n2. 3 Statistical proof points for the GEO Architect.\n3. 2 Authority quotes.\n4. A scarcity trigger (end date).\n\nReturn JSON format matching the SiteConfig interface."
+      },
+      "name": "AI Content Generator",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/YOUR_REPO/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeader",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_GITHUB_TOKEN"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "body": {
+            "event_type": "deploy_page",
+            "client_payload": {
+                "content": "{{$json[\"choices\"][0][\"message\"][\"content\"]}}"
+            }
+        }
+      },
+      "name": "Trigger Deployment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        650,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Content Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Content Generator": {
+      "main": [
+        [
+          {
+            "node": "Trigger Deployment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
