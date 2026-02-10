@@ -15,7 +15,7 @@ export default function RetentionTestPage() {
         addLog("Simulating purchase of 'Book Nook Kit'...");
         // 1. Identify User
         const user = CRMService.identifyUser("test_user_001");
-        addLog(`User identified: ${user.name} (Segment: ${user.segment})`);
+        addLog(`User identified: ${user.name} (Segment: ${user.segments.join(', ')})`);
 
         // 2. Track Purchase Event
         CRMService.trackEngagement(user.id, 'purchase', 50); // High score for purchase
