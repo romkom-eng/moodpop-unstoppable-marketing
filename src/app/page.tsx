@@ -37,7 +37,7 @@ export default function Home() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mb-12 leading-relaxed">
-          Stop waiting for traffic. We implement the <strong>"Unstoppable 5"</strong> framework to turn your website into a 24/7 psychological sales agent.
+          It never sleeps. It <strong>Attracts</strong> (GEO), <strong>Persuades</strong> (Psychology), <strong>Analyzes</strong> (Growth), and <strong>Retains</strong> customers 24/7. We turn your website into a revenue-generating asset.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
@@ -62,31 +62,35 @@ export default function Home() {
       <section className="px-6 py-24 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Your website is invisible. <br /><span className="text-gray-500">Let's fix that.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Not just a website. <br /><span className="text-gray-500">A 24/7 Digital Empire.</span></h2>
             <p className="text-gray-400 text-lg mb-6">
-              Most agencies build "pretty" sites that gather dust. We build <strong>Data-Driven Sales Engines</strong> engineered to dominate AI search results (GEO) and trigger dopamine loops in visitors.
+              Standard sites are passive. Our system is aggressive. It actively hunts for traffic and closes deals using the <strong>Unstoppable 4-Step Cycle</strong>.
             </p>
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-center gap-3">
-                <span className="text-rose-500">✓</span>
-                GEO Architect: Rank in AI answers (ChatGPT, Gemini)
+                <span className="text-rose-500 font-bold">1. ATTRACT</span>
+                GEO Architect & Vibe-Coding (Traffic Generation)
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-rose-500">✓</span>
-                Psychology UI: Scarcity, Authority, & Social Proof
+                <span className="text-rose-500 font-bold">2. PERSUADE</span>
+                Psychology UI & Scarcity Triggers (Conversion)
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-rose-500">✓</span>
-                Retention Guardian: Automated CRM & Email loops
+                <span className="text-rose-500 font-bold">3. ANALYZE</span>
+                Growth Oracle (Data Optimization)
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-rose-500 font-bold">4. RETAIN</span>
+                Retention Guardian (Lifetime Value)
               </li>
             </ul>
           </div>
           <div className="relative">
             {/* Visual representation of 'Engine' */}
             <div className="aspect-square bg-gradient-to-tr from-rose-500/20 to-blue-500/20 rounded-2xl border border-white/10 p-8 flex flex-col justify-center items-center">
-              <div className="text-6xl mb-4">⚙️ + 🧠</div>
-              <h3 className="text-2xl font-bold mb-2">The Unstoppable Engine</h3>
-              <p className="text-center text-gray-400">Technology meets Psychology</p>
+              <div className="text-6xl mb-4">♾️</div>
+              <h3 className="text-2xl font-bold mb-2">The Infinite Loop</h3>
+              <p className="text-center text-gray-400">Attract → Persuade → Analyze → Retain</p>
             </div>
           </div>
         </div>
