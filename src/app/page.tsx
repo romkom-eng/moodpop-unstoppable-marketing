@@ -239,19 +239,9 @@ export default function Home() {
         </p>
 
         <form
+          action="https://formspree.io/f/mwvnvojn"
+          method="POST"
           className="flex flex-col gap-4 text-left"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.currentTarget);
-            const name = formData.get('name') as string;
-            const email = formData.get('email') as string;
-            const url = formData.get('url') as string;
-
-            const subject = `[Agency Lead] Audit Request from ${name}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AWebsite: ${url}%0D%0A%0D%0APlease send me a free audit.`;
-
-            window.location.href = `mailto:denisoppa00@gmail.com?subject=${subject}&body=${body}`;
-          }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -271,7 +261,7 @@ export default function Home() {
           <button type="submit" className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-lg mt-4 transition-all hover:scale-[1.02]">
             Get My Free Audit
           </button>
-          <p className="text-xs text-center text-gray-500 mt-2">Clicking this will open your email client.</p>
+          <p className="text-xs text-center text-gray-500 mt-2">We typically reply within 24 hours.</p>
         </form>
       </section>
 

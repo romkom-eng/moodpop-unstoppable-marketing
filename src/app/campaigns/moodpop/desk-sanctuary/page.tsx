@@ -60,8 +60,12 @@ export default function DeskSanctuaryPage() {
                     <div className="absolute inset-0 bg-rose-200 rounded-full filter blur-3xl opacity-30 transform scale-90"></div>
                     {/* Placeholder for Product Image */}
                     <div className="relative bg-white p-4 rounded-3xl shadow-xl border border-rose-100 rotate-2 hover:rotate-0 transition-all duration-500">
-                        <div className="aspect-square bg-rose-50 rounded-2xl flex items-center justify-center text-rose-300">
-                            [Product Image Placeholder: Book Nook + Stickers]
+                        <div className="aspect-square bg-rose-50 rounded-2xl flex items-center justify-center overflow-hidden">
+                            <img
+                                src="/moodpop-demo.png"
+                                alt="MoodPop Desk Sanctuary Kit"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                         <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100">
                             <p className="font-serif text-lg">"My anxiety cure."</p>
