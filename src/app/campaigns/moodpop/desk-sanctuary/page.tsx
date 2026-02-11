@@ -47,7 +47,7 @@ export default function DeskSanctuaryPage() {
                     </div>
 
                     <a
-                        href="https://moodpop-3.myshopify.com/"
+                        href="https://moodpop-3.myshopify.com/?utm_source=unstoppable_agency&utm_medium=referral&utm_campaign=desk_sanctuary"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block px-8 py-4 bg-rose-400 hover:bg-rose-500 text-white font-bold rounded-2xl shadow-[0_10px_20px_rgba(251,113,133,0.3)] transition-all transform hover:-translate-y-1"
@@ -111,9 +111,12 @@ export default function DeskSanctuaryPage() {
 
             {/* Sticky Bottom Bar for mobile conversion */}
             <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 md:hidden shadow-[0_-5px_20px_rgba(0,0,0,0.05)] z-50">
-                <button className="w-full py-3 bg-rose-400 text-white font-bold rounded-xl">
+                <a
+                    href="https://moodpop-3.myshopify.com/?utm_source=unstoppable_agency&utm_medium=referral&utm_campaign=desk_sanctuary"
+                    className="block w-full py-3 bg-rose-400 text-white font-bold rounded-xl text-center"
+                >
                     Shop Now - Limited Stock
-                </button>
+                </a>
             </div>
 
         </div>
