@@ -13,9 +13,14 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="font-bold text-xl tracking-tighter">UNSTOPPABLE AGENCY</span>
-          <a href="#contact" className="text-sm font-semibold bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors">
-            Get Started
-          </a>
+          <div className="flex gap-4">
+            <a href="#pricing" className="text-sm font-semibold text-gray-300 hover:text-white transition-colors py-2">
+              Pricing
+            </a>
+            <a href="#contact" className="text-sm font-semibold bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors">
+              Get Started
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -122,6 +127,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Section (Stripe Integration) */}
+      <section id="pricing" className="px-6 py-24 bg-zinc-900/30">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center">Choose Your Weapon</h2>
+          <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+            Secure your spot in the future of marketing. All plans include the core Unstoppable 5 framework.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Starter Plan */}
+            <div className="bg-black border border-zinc-800 p-8 rounded-2xl flex flex-col hover:border-zinc-600 transition-colors">
+              <h3 className="text-xl font-bold mb-2">Starter Audit</h3>
+              <div className="text-3xl font-bold mb-6">$499 <span className="text-sm font-normal text-gray-500">/ one-time</span></div>
+              <ul className="space-y-3 mb-8 text-gray-400 text-sm flex-1">
+                <li>• Full GEO/SEO Analysis</li>
+                <li>• UI/UX Psychology Audit</li>
+                <li>• Actionable Roadmap</li>
+                <li>• 48-hour delivery</li>
+              </ul>
+              <a href="#" className="w-full block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-lg transition-colors">
+                Buy Audit
+              </a>
+            </div>
+
+            {/* Growth Plan (Highlight) */}
+            <div className="bg-zinc-900 border border-rose-500 p-8 rounded-2xl flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(244,63,94,0.2)]">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide">
+                MOST POPULAR
+              </div>
+              <h3 className="text-xl font-bold mb-2">Growth Engine</h3>
+              <div className="text-3xl font-bold mb-6">$2,499 <span className="text-sm font-normal text-gray-500">/ month</span></div>
+              <ul className="space-y-3 mb-8 text-gray-300 text-sm flex-1">
+                <li className="flex gap-2"><span className="text-rose-500">✓</span> Full "Unstoppable 5" Implementation</li>
+                <li className="flex gap-2"><span className="text-rose-500">✓</span> Vibe-Coding Page Updates</li>
+                <li className="flex gap-2"><span className="text-rose-500">✓</span> Automated Retention Email Loops</li>
+                <li className="flex gap-2"><span className="text-rose-500">✓</span> Weekly Growth Reports</li>
+              </ul>
+              <a href="#" className="w-full block text-center bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg">
+                Subscribe via Stripe
+              </a>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-black border border-zinc-800 p-8 rounded-2xl flex flex-col hover:border-zinc-600 transition-colors">
+              <h3 className="text-xl font-bold mb-2">Market Domination</h3>
+              <div className="text-3xl font-bold mb-6">Contact Us</div>
+              <ul className="space-y-3 mb-8 text-gray-400 text-sm flex-1">
+                <li>• Custom AI Model Training</li>
+                <li>• Dedicated Growth Engineer</li>
+                <li>• Multi-Channel Automation</li>
+                <li>• 24/7 Priority Support</li>
+              </ul>
+              <a href="#contact" className="w-full block text-center bg-white text-black hover:bg-gray-200 font-bold py-3 rounded-lg transition-colors">
+                Talk to Sales
+              </a>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-500 mt-8">Payments secured by Stripe. Cancel anytime.</p>
+        </div>
+      </section>
+
       {/* FAQ/Objections (Conversion Psychologist) */}
       <section className="px-6 py-24 bg-zinc-900/30">
         <div className="max-w-3xl mx-auto">
@@ -136,7 +202,7 @@ export default function Home() {
           />
           <ObjectionHandler
             question="How much does it cost?"
-            answer="We offer custom packages based on your current stage. Submit your URL below for a free audit and quote."
+            answer="We offer custom packages based on your current stage. See the Pricing section above or request a custom audit."
           />
         </div>
       </section>
@@ -148,26 +214,40 @@ export default function Home() {
           Enter your website URL. We'll show you exactly how we can transform it into an Unstoppable Sales Engine.
         </p>
 
-        <form className="flex flex-col gap-4 text-left">
+        <form
+          className="flex flex-col gap-4 text-left"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const name = formData.get('name') as string;
+            const email = formData.get('email') as string;
+            const url = formData.get('url') as string;
+
+            const subject = `[Agency Lead] Audit Request from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AWebsite: ${url}%0D%0A%0D%0APlease send me a free audit.`;
+
+            window.location.href = `mailto:denisoppa00@gmail.com?subject=${subject}&body=${body}`;
+          }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Name</label>
-              <input type="text" placeholder="Your Name" className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
+              <input name="name" type="text" placeholder="Your Name" required className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Email</label>
-              <input type="email" placeholder="ceo@company.com" className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
+              <input name="email" type="email" placeholder="ceo@company.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-400 mb-1">Website URL</label>
-            <input type="url" placeholder="https://your-business.com" className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
+            <input name="url" type="url" placeholder="https://your-business.com" required className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rose-500 transition-colors" />
           </div>
 
-          <button type="button" className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-lg mt-4 transition-all hover:scale-[1.02]">
+          <button type="submit" className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-lg mt-4 transition-all hover:scale-[1.02]">
             Get My Free Audit
           </button>
-          <p className="text-xs text-center text-gray-500 mt-2">No commitment required. We'll reply within 24 hours.</p>
+          <p className="text-xs text-center text-gray-500 mt-2">Clicking this will open your email client.</p>
         </form>
       </section>
 
