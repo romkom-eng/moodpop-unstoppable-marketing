@@ -136,48 +136,68 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Starter Plan */}
+            {/* Starter Plan ($49) */}
             <div className="bg-black border border-zinc-800 p-8 rounded-2xl flex flex-col hover:border-zinc-600 transition-colors">
-              <h3 className="text-xl font-bold mb-2">Starter Audit</h3>
-              <div className="text-3xl font-bold mb-6">$499 <span className="text-sm font-normal text-gray-500">/ one-time</span></div>
-              <ul className="space-y-3 mb-8 text-gray-400 text-sm flex-1">
-                <li>• Full GEO/SEO Analysis</li>
-                <li>• UI/UX Psychology Audit</li>
-                <li>• Actionable Roadmap</li>
-                <li>• 48-hour delivery</li>
+              <h3 className="text-xl font-bold mb-2">The Brutal Truth Audit</h3>
+              <div className="text-3xl font-bold mb-6">$49 <span className="text-sm font-normal text-gray-500">/ one-time</span></div>
+              <p className="text-sm text-gray-400 mb-6">"Why isn't my site selling?" We tell you exactly why.</p>
+              <ul className="space-y-3 mb-8 text-gray-300 text-sm flex-1">
+                <li className="flex gap-2"><span className="text-white">✓</span> Full Psychology Teardown</li>
+                <li className="flex gap-2"><span className="text-white">✓</span> SEO "Leak" Detection</li>
+                <li className="flex gap-2"><span className="text-white">✓</span> <strong>Bonus:</strong> 1 Free "Vibe-Code" Snippet</li>
+                <li className="flex gap-2"><span className="text-white">✓</span> 24-Hour Turnaround</li>
               </ul>
-              <a href="#" className="w-full block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-lg transition-colors">
-                Buy Audit
+              <a href="#contact" className="w-full block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-lg transition-colors">
+                Get Audited ($49)
               </a>
             </div>
 
-            {/* Growth Plan (Highlight) */}
+            {/* Growth Plan ($199) - Irresistible */}
             <div className="bg-zinc-900 border border-rose-500 p-8 rounded-2xl flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(244,63,94,0.2)]">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide">
-                MOST POPULAR
+                NO BRAINER
               </div>
-              <h3 className="text-xl font-bold mb-2">Growth Engine</h3>
-              <div className="text-3xl font-bold mb-6">$2,499 <span className="text-sm font-normal text-gray-500">/ month</span></div>
-              <ul className="space-y-3 mb-8 text-gray-300 text-sm flex-1">
-                <li className="flex gap-2"><span className="text-rose-500">✓</span> Full "Unstoppable 5" Implementation</li>
-                <li className="flex gap-2"><span className="text-rose-500">✓</span> Vibe-Coding Page Updates</li>
-                <li className="flex gap-2"><span className="text-rose-500">✓</span> Automated Retention Email Loops</li>
-                <li className="flex gap-2"><span className="text-rose-500">✓</span> Weekly Growth Reports</li>
+              <h3 className="text-xl font-bold mb-2">Autonomous Growth Bot</h3>
+              <div className="text-3xl font-bold mb-6">$199 <span className="text-sm font-normal text-gray-500">/ month</span></div>
+              <p className="text-sm text-gray-400 mb-6">Hire a full marketing team for the price of lunch.</p>
+              <ul className="space-y-4 mb-8 text-gray-300 text-sm flex-1">
+                <li className="flex gap-2 items-start">
+                  <span className="text-rose-500 mt-1">✓</span>
+                  <div>
+                    <strong>Daily AI Blog Post</strong>
+                    <p className="text-xs text-gray-500">We auto-write 1 SEO article every single day.</p>
+                  </div>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-rose-500 mt-1">✓</span>
+                  <div>
+                    <strong>Competitor Spying</strong>
+                    <p className="text-xs text-gray-500">Alerts when rivals change prices or ads.</p>
+                  </div>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-rose-500 mt-1">✓</span>
+                  <div>
+                    <strong>"Cart Recovery" Loop</strong>
+                    <p className="text-xs text-gray-500">Auto-emails that recover 15% of lost sales.</p>
+                  </div>
+                </li>
               </ul>
-              <a href="#" className="w-full block text-center bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg">
-                Subscribe via Stripe
+              <a href="#contact" className="w-full block text-center bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg">
+                Hire The Bot ($199/mo)
               </a>
             </div>
 
             {/* Enterprise Plan */}
             <div className="bg-black border border-zinc-800 p-8 rounded-2xl flex flex-col hover:border-zinc-600 transition-colors">
-              <h3 className="text-xl font-bold mb-2">Market Domination</h3>
+              <h3 className="text-xl font-bold mb-2">Agency Partner</h3>
               <div className="text-3xl font-bold mb-6">Contact Us</div>
+              <p className="text-sm text-gray-400 mb-6">For agencies managing multiple client sites.</p>
               <ul className="space-y-3 mb-8 text-gray-400 text-sm flex-1">
-                <li>• Custom AI Model Training</li>
-                <li>• Dedicated Growth Engineer</li>
-                <li>• Multi-Channel Automation</li>
-                <li>• 24/7 Priority Support</li>
+                <li>• Whitelabel Dashboard</li>
+                <li>• API Access</li>
+                <li>• Dedicated Engineer</li>
+                <li>• Priority Support</li>
               </ul>
               <a href="#contact" className="w-full block text-center bg-white text-black hover:bg-gray-200 font-bold py-3 rounded-lg transition-colors">
                 Talk to Sales
