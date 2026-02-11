@@ -155,7 +155,7 @@ export default function Home() {
             {/* Growth Plan ($199) - Irresistible */}
             <div className="bg-zinc-900 border border-rose-500 p-8 rounded-2xl flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(244,63,94,0.2)]">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide">
-                NO BRAINER
+                GROWTH BOOSTER
               </div>
               <h3 className="text-xl font-bold mb-2">Autonomous Growth Bot</h3>
               <div className="text-3xl font-bold mb-6">$199 <span className="text-sm font-normal text-gray-500">/ month</span></div>
